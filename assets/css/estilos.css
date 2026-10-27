@@ -18,6 +18,12 @@ footer h2 {
     display: none;
 }
 
+/* Main con min-heigth */
+
+main {
+    min-height: 100vh;
+}
+
 /* Las listas del menú principal y del footer no tendrán estilos de listas */
 nav.principal,
 body > footer {
@@ -105,11 +111,11 @@ nav.principal ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5em;
 
     & li a {
         display: inline-block;
         padding: 1em 2em;
+        margin: 0.5em;
         background-color: var(--ca-section-header);
         border-radius: 4px;
     }
@@ -125,6 +131,9 @@ nav.principal ul {
     footer {
         margin: 0 15%;
     }
+    footer {
+        background-color: pink;
+    }
 }
 
 /* Muestra una iágen de fondo en el before del elemento <figure> del documento HTML */
@@ -138,7 +147,7 @@ nav.principal ul {
 }
 
 figure {
-    height: 20vh;
+    height: 10vh;
 }
 
 .ca-before {
