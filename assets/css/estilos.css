@@ -1,0 +1,165 @@
+:root {
+    --ca-bg-color: #ffffe0;
+    --ca-bg-footer: #008080;
+    --ca-section-header: #3cb371;
+    --ca-section-color: #fff;
+    --ca-article-color: #3cb371;
+    --ca-color: #808080;
+    --ca-a-color: #fff;
+    --ca-a--hover: #ffffe0;
+
+    --ca-imagen: url("https://pixfill.dev/640x426/3cb371/fff");
+}
+
+/* Los h1, los encabezados del menú principal y del pie de página no serán visibles en la página web */
+h1,
+nav h2,
+footer h2 {
+    display: none;
+}
+
+/* Las listas del menú principal y del footer no tendrán estilos de listas */
+nav.principal,
+body > footer {
+    & ul {
+        list-style-type: none;
+    }
+}
+
+/* Los enlaces no tendrán el subrayado */
+a {
+    text-decoration: none;
+}
+
+/* La cabecera de la sección y del pie de página tendrán un espaciado interior hasta el contenido de 5rem arriba y abajo y del 10% en laterales */
+section > header,
+footer {
+    padding: 5rem 10%;
+}
+
+/* Los artículos del sitio también tendrán el 10% del espacio lateral hasta los border de la página web */
+article {
+    padding: 0 10%;
+}
+
+/* El texto del encabezado de la sección tendrá el doble del tamaño de la letra del elemento raíz de la página HTML */
+/* El encabezado de la sección estará centrado */
+section h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* El texto de los encabezados de los artículos tendrán 1.5 el tamaño de la letra del elemento raíz de la página HTML */
+article h3 {
+    font-size: 1.5rem;
+}
+
+/* COLORES */
+
+/* El color de fondo de la página web será RGB (255, 255, 224) pero en código Hex */
+/* Los textos dereán de color RGB (128, 128, 128) en código Hex */
+html,
+body,
+main {
+    background-color: var(--ca-bg-color);
+    color: var(--ca-color);
+}
+
+/* El color de fondo del footer será "Teal", en código Hex */
+footer {
+    background-color: var(--ca-bg-footer);
+}
+
+/* El color de la cabecera de la sección principal será de color "MediumSeaGreen", en código Hex */
+/* El encabezado de la sección será blanco */
+section > header {
+    background-color: var(--ca-section-header);
+    & h2 {
+        color: var(--ca-section-color);
+    }
+}
+
+/* Los encabezados de los artículos también serán de color "MediumSeaGreen" */
+article h3 {
+    color: var(--ca-article-color);
+}
+
+/* Los enlaces serán de color blanco que pasarán a color "LightYellow" en código Hex al pasar el ratón por encima */
+
+a {
+    color: var(--ca-a-color);
+
+    &:hover {
+        color: var(--ca-a--hover);
+    }
+}
+
+/* El contenedor de los ítems de la lista del menú principal será flexible*/
+/* Los ítems saltarán a la línea siguiente cuando no cojan en el espacio disponible y ordenará los ítems al centro */
+/* Los enlaces serán bloques en línea */
+/* Tendrán un relleno de 1em arriba y abajo y 2 en los laterales */
+/* Tendrán un espacio lateral entre ellos de 0.5em (gap) */
+/* Tendrán el mismo color de fondo de la cabecera de la sección */
+/* Tendrán las esquinas redondeadas 4px */
+nav.principal ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+
+    & li a {
+        display: inline-block;
+        padding: 1em 2em;
+        background-color: var(--ca-section-header);
+        border-radius: 4px;
+    }
+}
+
+/* Cuando el ancho de un dispositivo llegue o supere los 640px */
+/* El espacio lateral de los artículos subirá a un 15% */
+/* Y la cabecera de la sección y el pie de página también tendrán un espaciado del 15% en los laterales */
+/* El artículo contenedor tendrá un margin inferior del 10% */
+@media (min-width: 640px) {
+    article,
+    section header,
+    footer {
+        margin: 0 15%;
+    }
+}
+
+/* Muestra una iágen de fondo en el before del elemento <figure> del documento HTML */
+/* El elemento <figure>:
+    - tendrá un ancho de la mitad del artículo
+    - estará centrado
+    - tendrá una relación de aspecto de 3:2 */
+/* La imágen de fondo será de 640x426 píxeles con color de fondo como la cabecera de la sección */
+.ca-imagen {
+    margin-bottom: 10%;
+}
+
+figure {
+    height: 20vh;
+}
+
+.ca-before {
+    position: relative;
+
+    &figure {
+        aspect-ratio: 3/2;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 25%;
+
+        width: 50%;
+        height: 100%;
+
+        background-image: var(--ca-imagen);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
